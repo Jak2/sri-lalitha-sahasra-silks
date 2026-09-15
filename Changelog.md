@@ -479,6 +479,31 @@ price lists appear · weaver purchase orders / manufacturing enter scope · mont
 
 ---
 
+## [2026-09-16] Visual identity — restrained, not ornate
+
+**Decision:** the store's Indian character comes from photography, one accent colour sampled from a
+real saree, one serif heading face, and the language used for weaves, regions and occasions — not
+from ornamental theme design. Recorded in [phase0/brand.md](phase0/brand.md) Step 4 with fill slots,
+reasoning and theme candidates in
+[phase0/shopify-build-guide.md](phase0/shopify-build-guide.md) Part 1b.
+**Context:** asked for a theme that "looks Indian". A theme is structure; identity is photography,
+palette, typography and copy. Two stores on the same free theme selling shoes and Kanjivarams look
+nothing alike.
+**Rejected:** the ornate default — gold filigree, maroon ground, paisley backgrounds, decorative
+Devanagari-style display font. It reads as low-trust to exactly the referred stranger the PRD calls
+Persona B, dates quickly, and loads badly on mobile data. Premium Indian textile brands present
+restrained.
+**Consequences:** applies to Instagram and the WhatsApp Business profile immediately, not only to a
+future website. Free Theme Store candidates recorded (Heritage, Fabric, Atelier, Dawn, Studio),
+chosen by previewing real saree photographs on a phone. Any theme spend of 🟡 ~₹15,000 is better
+directed at the drape-shot reshoot if [phase0/catalog/PHOTOS.md](phase0/catalog/PHOTOS.md) shows
+gaps.
+**Reverses if:** photography and copy are in place and a measured conversion problem still points at
+the visual design.
+**Status:** Active
+
+---
+
 ## [2026-09-16] Launch on a stock Shopify theme, not a custom one
 
 **Decision:** when the Stage 4 gate clears and Path A is taken, build on a free Shopify theme

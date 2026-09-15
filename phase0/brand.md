@@ -58,7 +58,34 @@ Claim them even if unused at launch. They cost nothing and are unrecoverable onc
 Instagram matters most — it is the Phase 2 channel, and per the WhatsApp/Instagram decision in
 `Changelog.md` it is a traffic layer feeding this site, not a substitute for it.
 
-## Step 4 — Log
+## Step 4 — Visual identity
+
+**Decided 2026-09-16: restrained, not ornate.** Full reasoning and theme candidates in
+[shopify-build-guide.md](shopify-build-guide.md) Part 1b. The short version, because it applies to
+Instagram and WhatsApp today, long before any website exists:
+
+- **Photography carries the Indian identity** — 🟡 ~80% of the effect. One consistent background and
+  one lighting setup across every product. Drape shot first.
+- **One accent colour**, taken from a real dye colour in your own sarees. Buttons and links only.
+  Everything else white, off-white, or dark neutral.
+- **One serif for headings**, plain sans for body. No decorative display font.
+- **Words do the rest** — name the weave, the region, the cluster; group by occasion.
+
+**The trap, named so it is not walked into:** gold filigree, maroon everywhere, paisley backgrounds,
+a decorative Devanagari-style font. Reads as low-trust, dates immediately, loads badly on mobile
+data. Premium Indian textile brands all present restrained.
+
+| | Decision |
+|---|---|
+| Accent colour (hex) | `<<FILL: sampled from an actual saree photo>>` |
+| Heading font | `<<FILL: a serif, free on Google Fonts>>` |
+| Body font | `<<FILL: a plain sans>>` |
+| Logo | 🟡 Canva is genuinely fine at launch. ₹0 |
+
+**Apply the same three to Instagram and the WhatsApp Business profile now.** Consistency across the
+three surfaces is most of what "a brand" means at this size, and it costs nothing.
+
+## Step 5 — Log
 
 **Verify:** `Changelog.md` entry with the name, the domain, the registrar, and the renewal date.
 Not yet written.
