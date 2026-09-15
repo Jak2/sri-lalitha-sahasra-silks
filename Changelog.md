@@ -277,6 +277,208 @@ entry, never silently in the CSV.
 
 ---
 
+## [2026-09-15] Shopify's India fee established — 2% on Basic
+
+**Decision:** Record 2% (Basic), 1% (Grow), 0.6% (Advanced) as the additional Shopify fee levied on
+top of the payment gateway's own fee, because Shopify Payments does not operate in India.
+**Context:** implementations.md §7.2 named this the decisive open input in the Path A vs. Path C
+comparison. It was unknown until now.
+**Derived:** Basic (₹1,499 + 2%) and Grow (₹5,599 + 1%) break even at **~₹4.1 lakh monthly GMV**.
+Below that, Basic; above it, Grow is cheaper despite the higher subscription.
+**Consequences:** The fee scales with GMV — ₹2,000/mo at ₹1L, ₹7,200/mo at ₹3.6L, ₹20,000/mo at
+₹10L. Cheap insurance now, expensive later. **The Phase 4 migration trigger should therefore be a
+specific GMV number decided in advance**, not a feeling that the fee has become annoying.
+**Caveat:** researched, not read from Shopify's page directly. **Re-read on the day of the decision.**
+Gateway fees (Razorpay ~2.36% effective, Cashfree ~2.30%) came from provider blogs rather than
+pricing pages and remain unverified. Cashfree's promotional 0% claim is explicitly excluded from the
+margin model — a business whose unit economics only work during a promo window does not have working
+unit economics.
+**Status:** Active — see [phase0/stack-research.md](phase0/stack-research.md)
+
+---
+
+## [2026-09-15] DLT and WhatsApp BSP registration added to Phase 0 as P0-15 and P0-16
+
+**Decision:** Treat TRAI DLT registration and WhatsApp Business API onboarding as Phase 0 critical-path
+tasks, started immediately, in parallel with the CA track.
+**Context:** Surfaced while assessing Path B, but they are **stack-independent — a hosted platform
+does not exempt you from DLT.** PRD §4.5 defines six notification triggers; each is a template
+requiring individual approval, and templates are rejected on wording. No transactional SMS can be
+sent at all until DLT clears.
+**Why this was missed:** Phase 0 was built around money and catalog. Messaging was treated as an
+implementation detail, when in fact it is the same shape as the CA dependency — **bureaucratic delay
+that can be started today and cannot be compressed later.**
+**Consequences:** Two new tasks, 2–4 and 1–3 weeks respectively, mostly waiting. A store **can**
+launch before they complete, falling back to email plus manual WhatsApp — but the ≤5-minutes-per-order
+target in PRD §1.5 does not hold until automation is live.
+**Status:** Active
+
+---
+
+## [2026-09-15] Paths D (Zoho Commerce) and E (Odoo) added to the decision gate
+
+**Decision:** Add both as genuine contenders at the gate. **The Path A recommendation is unchanged.**
+**Context:** Both beat Shopify on native Indian GST invoicing and, more importantly, **charge no
+platform percentage per order** — which is the entire structural objection to Path A.
+**Against Zoho:** 🔴 no dedicated Commerce mobile admin app, browser only. This collides directly with
+PRD §7.3 — "photos are on the phone; requiring a laptop to list a product means products do not get
+listed." It partially cancels the cost advantage.
+**Against Odoo:** it is an ERP, so the storefront is a feature of an accounting system. Heavy asset
+bundles make the PRD §10.1 target of ≤2.5s LCP a genuine fight, and the design ceiling matters for a
+product bought on visual desire. **Odoo becomes the right answer** if a physical shop, POS, or weaver
+purchase orders should share one system — then it goes to the top of the list.
+**Open:** whether Odoo's full Indian GST filing and e-invoicing needs Enterprise. The claim came from
+a partner blog, and Odoo Online's paid plans are already Enterprise-tier. **Ask Odoo directly.**
+**Signal worth noting:** almost nobody writes about running Odoo or Zoho Commerce for Indian D2C
+fashion. That is itself information about how much independent help exists when something breaks.
+**Resolution method:** not more reading. **An hour-long hands-on trial per platform — list one saree
+with six photos from a phone.** PRD §7.3 is a hard constraint and the trial settles it.
+**Status:** Active — open until the gate
+
+---
+
+## [2026-09-15] Competitor evidence supports the operator model and the no-COD decision
+
+**Finding 1 — the operator argument is not theoretical.** Suta, a saree brand at $4M+ revenue
+supporting ~14,000 weavers, runs on Shopify. Its founders' stated reason: they "don't even need a big
+team to maintain" it. A brand at many multiples of our projected revenue chose not to own the
+platform. Our bus factor is 1.
+*Caveat: Suta sells cotton and linen at volume — mostly restockable stock. The operational lesson
+transfers; the unique-piece inventory lesson does not. **No brand selling one-of-a-kind handloom at
+our scale has been found yet** — that comparison is still missing and would be worth more than any of
+this.*
+**Finding 2 — the most common headless regret is exactly our forbidden failure mode.** Merchants who
+went headless most often report that "every content change is a developer deploy." That is the
+operator-model entry of 2026-09-11 almost word for word, independently confirmed by people who
+learned it expensively.
+**Finding 3 — why Shopify is the Indian default.** Not the platform; the ecosystem. Razorpay Magic
+Checkout, GoKwik, Shiprocket and the GST apps are all deepest on Shopify, because every Indian
+commerce vendor ships a Shopify integration first. This qualifies the "Shopify has no native GST"
+objection — it has the largest population of GST apps precisely because it has the largest Indian
+merchant base.
+**Finding 4 — the no-COD decision is supported by the size of the industry built around COD.**
+GoKwik, Razorpay Magic Checkout and Shiprocket Checkout exist largely to manage COD and RTO. We avoid
+the problem rather than buying tools to manage it. **Corollary: introducing COD in Phase 3 means
+adopting an RTO-scoring vendor with its own fee and integration — a project, not a setting.**
+**Status:** Active — see [phase0/competitor-research.md](phase0/competitor-research.md)
+
+---
+
+## [2026-09-15] Budget constraint revised to near-zero — build second, not first
+
+**Decision:** Keep Path A as the eventual choice, but **change the sequence**. Fix the payment rail
+and the invoice trail now, at near-zero cost, and let measured order volume decide when the website
+earns its subscription.
+**Context:** The owner stated investment is **near zero**. This supersedes the earlier brief ("budget
+is not a problem, or else low budget but scaling and features should not suffer"), which the Path A
+recommendation was built on.
+**The reframe:** PRD §1.2's two highest-severity problems — the personal-UPI-account risk (#1) and
+the absence of an order/invoice record (#2) — **can be solved this week with no website at all**:
+- **Razorpay/Cashfree Payment Links** — ₹0 setup, ₹0 monthly, per-transaction only. Money lands in a
+  business account instead of personal PhonePe.
+- **Zoho Books Free** — genuinely free under **₹25 lakh turnover** (1 user + 1 accountant, 1,000
+  transactions/year). GST invoices, e-invoicing, and GSTR-1/GSTR-3B filing directly, as Zoho is a
+  registered GST Suvidha Provider.
+
+**Revises the 2026-09-11 WhatsApp/Instagram entry.** That entry held that platform catalogs "solve
+browsing, not transacting." Payment Links plus Zoho Books **do solve transacting** without a website.
+What remains unsolved is problem #3, the manual per-order labour — and that is what eventually
+justifies the build, on evidence rather than assumption.
+**What does NOT change:** Path A stays the correct destination. Zero budget does not make a VPS
+cheaper — it makes it dearer, because time becomes the scarce resource and the on-call burden lands
+on the one person who cannot be replaced. Free hosting tiers (Vercel, Supabase, Cloudflare) are real
+and adequate at this volume; **the cost was never the hosting, it was the 10–14 weeks and the
+permanent maintenance.**
+**Alternatives rejected:** *Free store builders* — the ₹0-forever tiers cap around 10 products
+(catalog is 50–300) and fail PRD §7.3 and the unique-stock requirement. *Amazon SmartBiz* —
+promotional fee waiver with marketplace lock-in.
+**Added for evaluation:** **ONDC.** Free onboarding, no central network commission, seller apps at
+~1–3% versus 20–30% on marketplaces. Attacks problem #4 (reach) at near-zero cost. 🟡 Verify seller-app
+fees and unique-stock handling.
+**Unavoidable cash acknowledged:** ~₹4,000–12,000 to start — almost entirely the CA and the domain.
+**The CA is not the place to economise.** A wrong GST position costs more than every other line
+combined and cannot be fixed later without correcting every past invoice.
+**Deprioritised, not cancelled:** **P0-15 (DLT) and P0-16 (WhatsApp BSP).** Still stack-independent,
+still weeks of approval — but manual WhatsApp messages are free and already being sent. Automate when
+volume justifies the per-message cost.
+**The decision rule for building:** if ₹1,499/month is unaffordable, the order volume does not yet
+justify a website. That is information, not failure.
+**Reverses if:** manual-handling pain grows faster than expected (build sooner), or the free loop
+proves workable for longer than expected (build later). Both measurable.
+**Status:** Active — see [phase0/zero-budget-plan.md](phase0/zero-budget-plan.md)
+
+---
+
+## [2026-09-15] Recommendation split into two — sequence and stack
+
+**Decision:** State the recommendation as **two separate decisions**, made at different times on
+different evidence, and stop presenting them as one.
+
+**(a) Sequence — decided now.** Do not build the website yet. Fix the payment rail and the invoice
+trail first. Of the five problems in PRD §1.2, the two most dangerous do not need a website: business
+money in a personal account needs a current account and a payment link; the missing invoice trail
+needs Zoho Books Free. Building first would mean spending weeks on problem #3 while problem #1 keeps
+running.
+
+**(b) Stack — decided at the §7 gate.** Path A (Shopify), unchanged.
+
+**Context:** The owner said the recommendation was not understood. On review the fault was in the
+presentation, not the reasoning — sequence and stack had been argued together across five documents,
+each with its own caveats, so neither came through plainly.
+
+**The stack argument, reduced to one line:** *you are not paying Shopify for features, you are paying
+them to not be on call.* The alternatives cost less cash and more of Jaya. With a bus factor of 1, an
+outage has no end date.
+
+**Honesty about the uncertainty, now stated in the documents rather than only in conversation:**
+"Path A" currently means *"Path A, assuming monthly GMV of roughly ₹1–4 lakh."* That range was
+assumed, not measured. At ₹1L/month Shopify costs ~₹42,000/year and is clearly worth 7–12 hours a
+month; at ₹10L/month it costs ~₹2.58L/year and a custom build starts to make sense. **Same
+recommendation, opposite conclusions, and the deciding number (Q10) is not known.**
+
+**Reversal conditions now recorded explicitly** in implementations.md §6.1 and README: 50+
+orders/month reverses (a); ~₹8L/month GMV, a second technical person, a physical shop, or learning
+being the explicit goal each reverse (b).
+
+**Consequences:** README now opens with the plain-language version before any requirement detail.
+implementations.md §6.1 carries the split and the reversal table.
+
+**Status:** Active
+
+---
+
+## [2026-09-16] Path F rejected — Odoo back office behind a Next.js storefront
+
+**Decision:** Do not run Odoo headless with a custom Next.js storefront. Recorded as Path F in
+[implementations.md §7.2b](implementations.md) so it is not re-proposed.
+**Context:** Asked directly whether Odoo-plus-Next.js resolves the objections raised separately
+against Path A (Shopify's 2%) and Path B (custom build effort). It does not — it inherits both.
+**Why it fails:**
+- Odoo replaces **Zoho Books**, not Shopify. Zoho Books Free already files GST returns as a
+  registered GSP at ₹0 under ₹25L turnover. Odoo Online's free tier is one app; the apps needed here
+  are paid, 🟡 ~₹31,000/user/year.
+- The Next.js half stays **Path B in full** — webhook signature verification, idempotency,
+  unique-stock locking, ISR-vs-live-stock, paise arithmetic. Odoo removes admin screens. Admin
+  screens were never the risk.
+- Two systems with no shared transaction. An order must land in both; Odoo unavailable at checkout
+  means a payment taken with no order recorded.
+- Odoo already ships eCommerce, so the module is either paid-for-unused or makes Next.js redundant.
+
+**Alternatives rejected alongside it:** none new — this compares against existing Paths A, B and E.
+**Consequences:** Path F is the only shape that is simultaneously the most expensive in cash
+(🟡 ~₹31,000+/year) **and** the slowest to launch (12–16 weeks). Path E — Odoo alone, using its own
+storefront — dominates it on both and remains the live option at the gate.
+**Reverses if:** a physical shop or POS shares the inventory · multiple warehouses or wholesale
+price lists appear · weaver purchase orders / manufacturing enter scope · monthly GMV passes
+🟡 ~₹13 lakh, where Shopify's 2% exceeds Odoo's licence.
+**Status:** Active
+
+**Also recorded:** "2% of GMV" is now defined in plain terms in
+[COSTS-AND-TRADEOFFS.md](COSTS-AND-TRADEOFFS.md) — total rupees sold before costs, not profit;
+₹60 on a ₹3,000 saree; charged *in addition* to the gateway's own ~2.36%.
+
+---
+
 ## Open Items Carried Forward
 
 These are unresolved and tracked in PRD §13.2. They are not decisions yet.
@@ -292,7 +494,11 @@ These are unresolved and tracked in PRD §13.2. They are not decisions yet.
 | Q7 | Who is the non-technical operator, on what device | Admin design, path choice |
 | Q8 | Brand name, domain, logo | Everything visible |
 | Q9 | Is a CA engaged | Q1, Q2, tax model |
-| — | **Stack choice: A, B, or C** | Everything after Phase 0 |
+| — | **Stack choice: A, B, C, D or E** (F rejected 2026-09-16) | Everything after Phase 0 |
+| Q10 | **Real monthly GMV, last 3 months of WhatsApp sales** | **The fee comparison — every stack cost figure is currently modelled on a guess** |
+| Q11 | Does Odoo's Indian GST filing / e-invoicing need Enterprise? | Whether Path E is affordable |
+| Q12 | Phone trial: list a saree with 6 photos on Shopify, Zoho, Odoo | PRD §7.3, path choice |
+| Q13 | Which system would the CA rather receive records in? | Path choice |
 
 ---
 
