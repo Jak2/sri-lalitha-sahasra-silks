@@ -86,6 +86,116 @@ abandon. Not before. "It looks a bit generic" is not that reason.
 
 ---
 
+# Part 1b — Making it look Indian
+
+## The thing to understand first
+
+**A theme is structure. Identity is photography, palette, typography and words.**
+
+Two stores on the same free Dawn theme — one selling running shoes, one selling Kanjivarams — do not
+look remotely alike, because the photographs are different, the colours are different, and the copy
+is different. Almost everything people mean by "it looks Indian" lives in the four things *you*
+control, not in the theme file.
+
+Put crudely: **if the sarees are photographed well, the site looks Indian on any good theme. If they
+are not, no theme rescues it.** The professional photos already shot are the largest single asset
+this store has.
+
+## The trap worth naming
+
+The instinct is ornate: gold filigree borders, deep maroon everywhere, a decorative Devanagari-style
+display font, a paisley background pattern. **This reliably reads as cheap, dated, and slow** —
+it is the visual signature of low-trust stores, which is the opposite of what Persona B needs in her
+four seconds. It also loads badly on mobile data.
+
+**Look at where Indian D2C is actually going.** Taneira, Jaypore, Suta, Raw Mango — premium Indian
+textile brands run *restrained* storefronts. Lots of white space, big photographs, a single accent
+colour, quiet type. The sarees carry the Indian-ness. The interface gets out of the way.
+
+That restraint is also the cheapest thing to build, which is convenient.
+
+## The four levers, in order of effect
+
+### 1. Photography — 🟡 80% of the effect
+
+Nothing else comes close.
+
+- **Consistent background across every product.** One background, one lighting setup. Mixed
+  backgrounds are the single biggest thing that makes a store look amateur.
+- **Drape shot first**, always. A saree flat is fabric; a saree draped is a garment. PRD §3.3 calls
+  this non-optional.
+- **One hero image that sets the tone** — a full drape, generous negative space, shot in daylight.
+- **Colour honesty.** Say on every product page that screens vary. It prevents returns.
+
+### 2. Colour — one accent, not a palette
+
+Pick **one** saturated colour from your actual sarees — a real dye colour, not a stock "Indian gold".
+Use it for buttons, links and small accents only. Everything else stays white, off-white or very dark
+neutral.
+
+A gold-and-maroon *everything* palette fights every photograph on the page. One accent makes the
+photographs louder, which is the goal.
+
+### 3. Typography — one serif does most of the work
+
+A good serif for headings against a plain sans for body text reads as heritage and craft without any
+ornament. Free on Google Fonts, and Shopify's theme editor sets fonts with no code.
+
+**Do not** use a decorative "Indian-style" display font. It dates immediately and hurts readability
+on phones.
+
+### 4. Words — where Indian-ness is cheapest and most real
+
+The theme cannot do this and it matters more than the theme does:
+
+- Name the weave, the region, the cluster. "Kanjivaram, woven in Kanchipuram" says more than any
+  border graphic.
+- Collections by **occasion** — wedding, festive, everyday, gifting. Buyers browse by occasion.
+- The About page in Jaya's own voice → [content/about.md](content/about.md). A real person and a
+  real place is the strongest trust signal you have, and it costs ₹0.
+
+## Which theme, concretely
+
+**Free, from Shopify's own Theme Store.** Shopify's free themes come in two families — the **Dawn**
+family and the newer **Horizon** family. Several Horizon-family themes are built for exactly this
+kind of product:
+
+| Theme | Family | Why it fits |
+|---|---|---|
+| **Heritage** | Horizon | Editorial, story-led. Built for brands with provenance to talk about |
+| **Fabric** | Horizon | Textile-oriented; material and detail shots get room |
+| **Atelier** | Horizon | Craft/maker framing — suits one-of-a-kind pieces |
+| **Dawn** | Dawn | The safe default. Fast, image-first, the most widely used apparel theme. Nothing wrong with it |
+| **Studio** | Dawn | Built to let visual work dominate the page |
+
+🟡 **Shopify renames and retires themes.** Treat this list as where to start browsing, not as final.
+Filter the Theme Store by Clothing, sort by free, then apply the phone test in Stage B.
+
+**Pick by trying your own photographs in it.** Every theme has a free preview. Put three real saree
+photos into three candidate themes and look at all three on a phone. Twenty minutes, and it settles
+the question better than any review.
+
+## On the paid "saree themes"
+
+There are themes marketed specifically at saree and ethnic-wear stores — Vastra, Sareeify, and
+others, typically 🟡 ₹5,000–20,000 one-time. Some are good. Two cautions before buying one:
+
+- **Many are sold outside Shopify's official Theme Store.** Theme Store themes are reviewed against
+  performance and accessibility standards and get free updates. Marketplace themes are not reviewed,
+  and updates depend on the seller still existing in two years.
+- **What you are buying is a demo, not the look.** The demo looks good because it is filled with
+  professionally shot photographs and finished copy. You already have the photographs. Put them into
+  a free theme before paying to find out the free theme was enough.
+
+Paid themes named for the niche (Ella, Symmetry, Debutify) are legitimate and are on the official
+Theme Store — but they buy layout variety and built-in conversion features, not Indian-ness.
+
+> **Recommendation: launch free. Give the ₹15,000 to the drape-shot reshoot if the photo audit shows
+> gaps** → [catalog/PHOTOS.md](catalog/PHOTOS.md). Better photographs beat a better theme, every time,
+> on the same budget.
+
+---
+
 # Part 2 — Step-by-step build
 
 **🟡 Estimated time: 12–20 hours of actual work**, spread across 1–2 weeks, most of it photos and
@@ -118,7 +228,11 @@ product data — not setup.
 
 ## Stage B — Theme · ~1–2 hours
 
-1. **Online Store → Themes → browse free themes.** Start with **Dawn** or **Horizon** (Shopify's own).
+**Choosing one that looks Indian is Part 1b above — read it before this stage.** Short version:
+photography and words carry the identity; the theme just has to stay out of the way.
+
+1. **Online Store → Themes → browse free themes.** Start with **Heritage**, **Fabric** or **Dawn**.
+   Preview each with three of your own saree photos before deciding.
 2. **Judge every theme on a phone.** Over 🟡 70% of Indian retail traffic is mobile. A theme that
    looks good on a laptop and cramped on a phone is the wrong theme.
 3. **Check these four things before committing** — swapping later means redoing Stage E:
@@ -277,6 +391,13 @@ The safe order, cheapest first. Stop as soon as the look is right.
 [Shopify 2.0 Themes: Complete Developer Guide](https://www.braincuber.com/blog/shopify-2-0-themes-complete-developer-guide) ·
 [How to Add Custom Liquid Code to Shopify](https://liquidfy.app/blog/how-to-add-custom-liquid-code-to-shopify) ·
 [Shopify Theme Development Guide 2026](https://amasty.com/blog/how-to-build-a-custom-shopify-theme/)
+
+**Sources for the theme findings (Part 1b), verified 2026-09-16:**
+[26 Best Shopify Themes](https://www.shopify.com/blog/shopify-themes) ·
+[Best Shopify Themes for Clothing Stores](https://www.omnisend.com/blog/best-shopify-themes-for-clothing/) ·
+[Best Free Shopify Themes 2026](https://ed.codes/blog/best-free-shopify-themes-2026) ·
+[Choosing a theme for an ethnic clothing store](https://cartcoders.com/blog/shopify-store/shopify-theme-ethnic-clothing-store/) ·
+[Top Shopify themes for Indian ethnic wear and saree stores](https://www.purplechalk.in/post/top-shopify-themes-for-indian-ethnic-wear-and-saree-stores)
 
 🟡 Pricing, plan names and checkout-customisation rules change. Verify on Shopify's own India pages
 the day you commit.
