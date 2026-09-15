@@ -382,6 +382,79 @@ The safe order, cheapest first. Stop as soon as the look is right.
 
 ---
 
+# Part 5 — Writing theme code in this repository
+
+**The question asked (2026-09-16): can the store be designed here in code and then imported into
+Shopify?**
+
+## Yes, and it is a supported, first-class workflow
+
+A Shopify theme is a folder of files. Shopify ships a CLI and a GitHub integration specifically so
+themes can live in version control.
+
+**But the order is the other way round from what "design here, then import" suggests.**
+
+## Why you cannot design it here first
+
+**Liquid renders on Shopify's servers, not on yours.** There is no meaningful local preview without a
+store attached — `shopify theme dev` works by connecting to a real store and proxying it. Writing a
+theme before the store exists means writing blind, against no products, no collections, and no
+settings.
+
+**The store comes first. The code comes out of the store, not into it.**
+
+## The workflow, in order
+
+1. Store exists, free theme chosen in the admin (Stage B).
+2. `shopify theme pull` — the theme arrives in this repository as files.
+3. Edit here. Branches, commits, review — all normal git.
+4. `shopify theme dev` — live preview against the real store, hot reload.
+5. `shopify theme push` to an **unpublished** theme. Preview it.
+6. Publish only when it is right.
+
+**Optionally, the GitHub integration.** It syncs a branch to a theme *both ways*: your pushes update
+the theme, and changes the operator makes in the theme editor come back as commits. That two-way sync
+is what makes code and a non-technical operator coexist safely — otherwise one silently overwrites
+the other.
+
+🟡 Branching convention if it gets that far: `main` = the live theme · `staging` = an unpublished QA
+theme · `feature/*` for work in progress.
+
+## Why not at launch
+
+**This is Level 3–4 of the ladder in Part 1, and it re-imports the ongoing maintenance cost that
+Path B was rejected for** — through a side door, in a smaller size.
+
+Three specific reasons:
+
+- **Everything in Part 1b is theme-editor work with zero code.** One accent colour, serif headings,
+  restrained layout, occasion collections. Writing it as Liquid produces the same store plus a file
+  to maintain.
+- **🚨 Every setting replaced with hardcoded markup is a setting the operator loses.** She can change
+  a heading in the theme editor. She cannot change it in Liquid, and she is the one running the store
+  day to day → [operator.md](operator.md). That trade needs a reason better than preference.
+- **Theme updates.** Custom sections and custom CSS largely survive; edits to core theme files do
+  not. This is how a store ends up frozen on an old theme version.
+
+## When it becomes the right move
+
+After the store is live and taking real orders, and a **specific** thing shows up that the theme
+editor genuinely cannot reach — a weave-detail block, a drape-story layout.
+
+Then: `shopify theme pull`, add it as a **custom section with a schema block**, push it back. A
+custom section appears in the theme editor afterwards, so the operator can still place and configure
+it, and it survives theme updates. That is the shape to aim for — code that hands control back,
+not code that takes it away.
+
+**Set up the git workflow at that moment. Not before.**
+
+---
+
+*Workflow references: [Shopify CLI for themes](https://shopify.dev/docs/storefronts/themes/tools/cli) ·
+[Shopify GitHub integration for themes](https://shopify.dev/docs/storefronts/themes/tools/github)*
+
+---
+
 *Decision context: [../implementations.md](../implementations.md) §7 · Costs:
 [../COSTS-AND-TRADEOFFS.md](../COSTS-AND-TRADEOFFS.md) · Gate:
 [../START-HERE.md](../START-HERE.md) Stage 4*

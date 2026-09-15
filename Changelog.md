@@ -479,6 +479,33 @@ price lists appear · weaver purchase orders / manufacturing enter scope · mont
 
 ---
 
+## [2026-09-16] Theme code stays out of this repository until the store is live
+
+**Decision:** do not write Shopify theme code here and import it. Build the store in the Shopify
+admin first; pull the theme into version control later, and only if a specific need appears that the
+theme editor cannot meet. Workflow recorded for that day in
+[phase0/shopify-build-guide.md](phase0/shopify-build-guide.md) Part 5.
+**Context:** asked whether the store could be designed here in code, following the recommended
+themes, and then imported into Shopify.
+**Why the order is wrong:** Liquid renders on Shopify's servers, so there is no meaningful local
+preview without a store attached — `shopify theme dev` proxies a real store. Designing before the
+store exists means writing blind, against no products, collections or settings. The code comes out
+of the store, not into it.
+**Why not at launch even so:** it is Level 3–4 of the customisation ladder and re-imports the
+maintenance cost Path B was rejected for · everything in the visual identity decision is theme-editor
+work with zero code · **every setting replaced with hardcoded markup is a setting the non-technical
+operator loses** · edits to core theme files are lost on theme updates.
+**What is supported, when the time comes:** `shopify theme pull` into this repo, edit on branches,
+`shopify theme dev` for live preview, `shopify theme push` to an unpublished theme, publish when
+right. The GitHub integration syncs a branch to a theme both ways, so operator edits in the theme
+editor return as commits rather than being overwritten.
+**Reverses if:** the store is live and a specific need appears that the theme editor cannot reach —
+then add it as a **custom section with a schema block**, so the operator keeps control of it and it
+survives theme updates.
+**Status:** Active
+
+---
+
 ## [2026-09-16] Visual identity — restrained, not ornate
 
 **Decision:** the store's Indian character comes from photography, one accent colour sampled from a
