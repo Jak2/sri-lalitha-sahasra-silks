@@ -479,6 +479,29 @@ price lists appear · weaver purchase orders / manufacturing enter scope · mont
 
 ---
 
+## [2026-09-16] Launch on a stock Shopify theme, not a custom one
+
+**Decision:** when the Stage 4 gate clears and Path A is taken, build on a free Shopify theme
+(Dawn or Horizon) configured through the theme editor. No custom theme, no premium theme, no page
+builder app at launch. Build steps written up in
+[phase0/shopify-build-guide.md](phase0/shopify-build-guide.md).
+**Context:** asked whether Shopify allows a custom design or only its templates. It allows a fully
+custom theme — theme code is fully editable Liquid/HTML/CSS/JS, and since Online Store 2.0 sections
+work on every page type. Checkout is the one hard boundary below Plus, which is desirable here:
+it keeps card data off our systems and PCI scope minimal.
+**Why stock anyway:** a custom theme re-imports the ongoing maintenance cost that Path B was
+rejected for · design decided before any real buyer behaviour is observed is a guess · the three
+saree-specific needs (photo-first product pages, honest unique-stock display, stranger trust) are
+all reachable through theme settings and sections.
+**Consequences:** build estimated at 🟡 12–20 hours, most of it product photos and copy, not setup.
+Premium theme (🟡 ₹15,000–25,000 one-time) deferred, not rejected.
+**Reverses if:** a specific measured problem is attributable to the theme — page speed, mobile
+drop-off, an abandoned flow — with revenue to justify maintaining the code. "It looks generic" does
+not qualify.
+**Status:** Active
+
+---
+
 ## Open Items Carried Forward
 
 These are unresolved and tracked in PRD §13.2. They are not decisions yet.
