@@ -1,0 +1,16 @@
+# Never commit identity, banking, or KYC material.
+scans/
+kyc/
+*.pdf
+*-statement.*
+*account-details*
+*ifsc*
+
+# Product masters are large binaries; keep them out of git history.
+catalog/images/
+
+# Secrets never belong here at all, but defend in depth.
+*.key
+*.pem
+.env
+.env.*
