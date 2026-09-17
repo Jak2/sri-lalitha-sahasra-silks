@@ -1,6 +1,6 @@
 # Implementations — How To Build It
 
-**Companion to:** [PRD.md](PRD.md) (what to build and why) · [Changelog.md](Changelog.md) (decision log)
+**Companion to:** [03-PRD.md](03-PRD.md) (what to build and why) · [05-Changelog.md](05-Changelog.md) (decision log)
 **Status:** Stack decision OPEN. Phase 0 can start immediately regardless.
 **Last updated:** 2026-09-11
 
@@ -638,7 +638,7 @@ Path B only if learning is explicitly ranked above launching, with eyes open.
 
 ### 7.4 Record the Decision
 
-When chosen, append to [Changelog.md](Changelog.md): the date, the choice, the numbers that drove
+When chosen, append to [05-Changelog.md](05-Changelog.md): the date, the choice, the numbers that drove
 it, what was rejected, and **what would make you reverse it**. That last item is what stops a
 decision from being re-litigated every month.
 
@@ -681,4 +681,4 @@ and no framework whose only justification is that it is interesting.
 
 ---
 
-*Requirements: [PRD.md](PRD.md). Decision history: [Changelog.md](Changelog.md).*
+*Requirements: [03-PRD.md](03-PRD.md). Decision history: [05-Changelog.md](05-Changelog.md).*

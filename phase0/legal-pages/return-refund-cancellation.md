@@ -76,4 +76,4 @@ automatically**. You will hear from us directly when that happens.
 ---
 
 **Owner confirmation — every line above confirmed or amended:** ☐
-**This resolves PRD Q6.** Log the confirmed policy in `Changelog.md`.
+**This resolves PRD Q6.** Log the confirmed policy in `05-Changelog.md`.

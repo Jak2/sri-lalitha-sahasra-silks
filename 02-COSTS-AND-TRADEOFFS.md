@@ -146,7 +146,7 @@ starts being a bottleneck that costs you sales.
 **The gateway's own ~2.36% is separate and unavoidable on every path.** Shopify's 2% is charged
 *additionally*, and is the only part of it that disappears on a non-Shopify path.
 
-**This is why Stage 4 of [START-HERE.md](START-HERE.md) is gated on measured volume.** At ₹1L/month
+**This is why Stage 4 of [01-START-HERE.md](01-START-HERE.md) is gated on measured volume.** At ₹1L/month
 GMV the whole thing costs ~₹42,000/year and buys back 7–12 hours a month. At ₹10L it costs ₹2.6L/year
 and Path C starts making sense.
 
@@ -237,4 +237,4 @@ table.
 
 *Reasoning: [phase0/zero-budget-plan.md](phase0/zero-budget-plan.md) · Fee research and confidence
 marking: [phase0/stack-research.md](phase0/stack-research.md) · Action checklist:
-[START-HERE.md](START-HERE.md)*
+[01-START-HERE.md](01-START-HERE.md)*

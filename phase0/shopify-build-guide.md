@@ -1,7 +1,7 @@
 # Building the Shopify Store — Design Freedom and a Step-by-Step Build
 
 **Read the gate first.** This document is *how*, not *whether*. The decision to build at all is gated
-in [../START-HERE.md](../START-HERE.md) Stage 4: if ₹1,499/month is unaffordable, the order volume
+in [../01-START-HERE.md](../01-START-HERE.md) Stage 4: if ₹1,499/month is unaffordable, the order volume
 does not yet justify a website. Nothing below should be started before that gate clears.
 
 **Confidence marking:** 🟢 verified · 🟡 estimate, verify before committing · 🔴 varies widely.
@@ -201,7 +201,7 @@ Theme Store — but they buy layout variety and built-in conversion features, no
 **🟡 Estimated time: 12–20 hours of actual work**, spread across 1–2 weeks, most of it photos and
 product data — not setup.
 
-**Prerequisites, all from [../START-HERE.md](../START-HERE.md) Stages 1–3. Do not start without them:**
+**Prerequisites, all from [../01-START-HERE.md](../01-START-HERE.md) Stages 1–3. Do not start without them:**
 
 - [ ] GSTIN in hand (or a written CA position saying registration is not required)
 - [ ] Business current account open, with the account details to hand
@@ -223,7 +223,7 @@ product data — not setup.
    for the same thing. Confirm the current figure on Shopify's own India pricing page that day.
 
 > ⚠️ Basic carries Shopify's **2% per-order fee** because Shopify Payments does not operate in India.
-> Full arithmetic: [../COSTS-AND-TRADEOFFS.md](../COSTS-AND-TRADEOFFS.md). The crossover to Grow is
+> Full arithmetic: [../02-COSTS-AND-TRADEOFFS.md](../02-COSTS-AND-TRADEOFFS.md). The crossover to Grow is
 > around 🟡 ₹4.1 lakh monthly GMV — far above launch volume. Basic is correct now.
 
 ## Stage B — Theme · ~1–2 hours
@@ -271,7 +271,7 @@ Trust microcopy — the short reassurance lines near the buy button — is draft
 2. 🚨 **Verify the settlement account is the business current account, not personal.** Removing
    personal-account payments is the reason this entire project exists. Check it twice.
 3. **Test mode first.** Place a real test order end to end before you take a rupee from anyone.
-4. **COD: off.** Deliberate, on the evidence, and documented in [../START-HERE.md](../START-HERE.md).
+4. **COD: off.** Deliberate, on the evidence, and documented in [../01-START-HERE.md](../01-START-HERE.md).
 5. Enable UPI in the gateway dashboard. It will be the dominant method.
 
 ### Tax
@@ -455,9 +455,9 @@ not code that takes it away.
 
 ---
 
-*Decision context: [../implementations.md](../implementations.md) §7 · Costs:
-[../COSTS-AND-TRADEOFFS.md](../COSTS-AND-TRADEOFFS.md) · Gate:
-[../START-HERE.md](../START-HERE.md) Stage 4*
+*Decision context: [../04-implementations.md](../04-implementations.md) §7 · Costs:
+[../02-COSTS-AND-TRADEOFFS.md](../02-COSTS-AND-TRADEOFFS.md) · Gate:
+[../01-START-HERE.md](../01-START-HERE.md) Stage 4*
 
 **Sources for the design-freedom findings (Part 1), verified 2026-09-16:**
 [Shopify — Customizing your store theme](https://www.shopify.com/blog/customizing-store-theme) ·

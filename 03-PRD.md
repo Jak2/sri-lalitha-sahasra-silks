@@ -3,10 +3,10 @@
 **Owner:** Jaya Arun Kumar Tulluri
 **Status:** Draft v1.0 — approved for planning, stack not yet chosen
 **Last updated:** 2026-09-11
-**Related docs:** [implementations.md](implementations.md) (how to build), [Changelog.md](Changelog.md) (decision log)
+**Related docs:** [04-implementations.md](04-implementations.md) (how to build), [05-Changelog.md](05-Changelog.md) (decision log)
 
 > This document is **stack-agnostic on purpose**. It describes what the system must do and why.
-> Technology choices live in `implementations.md`. If a requirement here can only be met by one
+> Technology choices live in `04-implementations.md`. If a requirement here can only be met by one
 > specific platform, that is a bug in this document — flag it.
 
 ---
@@ -309,6 +309,21 @@ Below the fold:
 
 Order-status lookup page by order number + mobile, no login required.
 
+⚠️ **Regulatory prerequisite for this section, added 2026-09-15.** None of the SMS or WhatsApp
+messages above can be sent until two approvals complete, and both take weeks of third-party waiting:
+
+- **DLT registration (TRAI-mandated)** — register the entity, the sender ID, and **every message
+  template individually**. Templates are rejected on wording. No transactional SMS is possible until
+  this clears.
+- **WhatsApp Business API access via a BSP** (Gupshup, Interakt, Twilio, or similar) — Facebook
+  Business verification plus per-template approval, with per-message pricing.
+
+Each of the six triggers above is a separate template. **This is stack-independent — a hosted
+platform does not exempt you.** Tracked as P0-15 and P0-16 in 04-implementations.md §1.1.
+
+**Launch is still possible before they complete**, falling back to email plus manual WhatsApp
+messages — but the ≤5-minutes-per-order target in §1.5 does not hold until automation is live.
+
 ---
 
 ## 5. Money
@@ -548,7 +563,7 @@ expensive.
 ### 9.2 Content (post-launch)
 
 Care guides, fabric explainers, occasion styling, "how to identify real silk". These match what
-Persona C searches for. Deferred to Phase 3 — see implementations.md.
+Persona C searches for. Deferred to Phase 3 — see 04-implementations.md.
 
 ---
 
@@ -655,7 +670,7 @@ Per the architect's operating principle, everything guessed is flagged.
 | Q9 | Is there a CA engaged already? | Q1, Q2, §5.5 | Owner |
 
 **Q1, Q3, and Q8 are on the critical path and are independent of every technology decision.**
-They should be started immediately — see Phase 0 in implementations.md.
+They should be started immediately — see Phase 0 in 04-implementations.md.
 
 ---
 
@@ -702,5 +717,5 @@ The site ships when all of these are true. Not before.
 
 ---
 
-*Requirements only. Implementation paths and their trade-offs: [implementations.md](implementations.md).
-Decision history: [Changelog.md](Changelog.md).*
+*Requirements only. Implementation paths and their trade-offs: [04-implementations.md](04-implementations.md).
+Decision history: [05-Changelog.md](05-Changelog.md).*

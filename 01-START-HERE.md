@@ -119,7 +119,7 @@ Track for 4–8 weeks after Stage 3:
 **Build when:** manual handling is eating hours you do not have, or buyers are asking for a site, or
 revenue makes ₹1,499/month trivial.
 
-**Then:** [README.md](README.md) for the feature scope, [implementations.md](implementations.md) §7
+**Then:** [README.md](README.md) for the feature scope, [04-implementations.md](04-implementations.md) §7
 for the decision gate. **Path A (Shopify) is the standing recommendation** — re-read
 [phase0/stack-research.md](phase0/stack-research.md) before committing, and check the fee figures on
 Shopify's own page that day.

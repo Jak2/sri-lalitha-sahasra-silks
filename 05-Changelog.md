@@ -16,7 +16,7 @@ it gets a new dated entry — never a silent change.
 **Status:** Active | Superseded by [date] | Reversed [date]
 ```
 
-Related: [PRD.md](PRD.md) · [implementations.md](implementations.md)
+Related: [03-PRD.md](03-PRD.md) · [04-implementations.md](04-implementations.md)
 
 ---
 
@@ -150,8 +150,8 @@ stack decision.
 
 ## [2026-09-11] Documentation set established
 
-**Decision:** Three living documents — `PRD.md` (what and why, stack-agnostic), `implementations.md`
-(how, with all paths and the decision gate), `Changelog.md` (this file).
+**Decision:** Three living documents — `PRD.md` (what and why, stack-agnostic), `04-implementations.md`
+(how, with all paths and the decision gate), `05-Changelog.md` (this file).
 **Context:** Owner asked explicitly for documents that prevent drift from agreed decisions.
 **Consequences:** PRD must stay stack-agnostic; if a requirement can only be met by one platform,
 that is a bug in the PRD. Any decision changed in conversation must be reflected here the same day
@@ -214,7 +214,7 @@ a website, not a replacement for one.
 - *Instagram Shop only* — needs a link destination in India; audience and reach are owned by Meta;
   an account ban ends the business with no appeal path.
 **Consequences:** PRD §8.2's WhatsApp CTA and §4.1's shared-link journey stay as the dominant launch
-path. Instagram/Meta catalog sync stays in Phase 2 (implementations.md §8), sourced from the site's
+path. Instagram/Meta catalog sync stays in Phase 2 (04-implementations.md §8), sourced from the site's
 catalog rather than maintained separately.
 **Low-cost validation available:** Set up WhatsApp Business Catalog now (free, ~2 hours). If buyers
 browse it and still message to buy, that confirms the checkout gap. If volume stays low enough that
@@ -281,7 +281,7 @@ entry, never silently in the CSV.
 
 **Decision:** Record 2% (Basic), 1% (Grow), 0.6% (Advanced) as the additional Shopify fee levied on
 top of the payment gateway's own fee, because Shopify Payments does not operate in India.
-**Context:** implementations.md §7.2 named this the decisive open input in the Path A vs. Path C
+**Context:** 04-implementations.md §7.2 named this the decisive open input in the Path A vs. Path C
 comparison. It was unknown until now.
 **Derived:** Basic (₹1,499 + 2%) and Grow (₹5,599 + 1%) break even at **~₹4.1 lakh monthly GMV**.
 Below that, Basic; above it, Grow is cheaper despite the higher subscription.
@@ -436,12 +436,12 @@ assumed, not measured. At ₹1L/month Shopify costs ~₹42,000/year and is clear
 month; at ₹10L/month it costs ~₹2.58L/year and a custom build starts to make sense. **Same
 recommendation, opposite conclusions, and the deciding number (Q10) is not known.**
 
-**Reversal conditions now recorded explicitly** in implementations.md §6.1 and README: 50+
+**Reversal conditions now recorded explicitly** in 04-implementations.md §6.1 and README: 50+
 orders/month reverses (a); ~₹8L/month GMV, a second technical person, a physical shop, or learning
 being the explicit goal each reverse (b).
 
 **Consequences:** README now opens with the plain-language version before any requirement detail.
-implementations.md §6.1 carries the split and the reversal table.
+04-implementations.md §6.1 carries the split and the reversal table.
 
 **Status:** Active
 
@@ -450,7 +450,7 @@ implementations.md §6.1 carries the split and the reversal table.
 ## [2026-09-16] Path F rejected — Odoo back office behind a Next.js storefront
 
 **Decision:** Do not run Odoo headless with a custom Next.js storefront. Recorded as Path F in
-[implementations.md §7.2b](implementations.md) so it is not re-proposed.
+[04-implementations.md §7.2b](04-implementations.md) so it is not re-proposed.
 **Context:** Asked directly whether Odoo-plus-Next.js resolves the objections raised separately
 against Path A (Shopify's 2%) and Path B (custom build effort). It does not — it inherits both.
 **Why it fails:**
@@ -474,7 +474,7 @@ price lists appear · weaver purchase orders / manufacturing enter scope · mont
 **Status:** Active
 
 **Also recorded:** "2% of GMV" is now defined in plain terms in
-[COSTS-AND-TRADEOFFS.md](COSTS-AND-TRADEOFFS.md) — total rupees sold before costs, not profit;
+[02-COSTS-AND-TRADEOFFS.md](02-COSTS-AND-TRADEOFFS.md) — total rupees sold before costs, not profit;
 ₹60 on a ₹3,000 saree; charged *in addition* to the gateway's own ~2.36%.
 
 ---

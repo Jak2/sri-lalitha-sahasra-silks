@@ -13,7 +13,7 @@ pages delay go-live). **Produces:** a live gateway account. No real order can be
 ## Step 1 — Compare on today's published fees
 
 ⚠️ Read every figure from **each provider's own current pricing page**, on the day of comparison.
-Record the date. Do not take a fee from this document, from implementations.md, or from an AI —
+Record the date. Do not take a fee from this document, from 04-implementations.md, or from an AI —
 Indian gateway pricing changes, and MDR regulation changes with it.
 
 | | Gateway A: `<<FILL>>` | Gateway B: `<<FILL>>` |
@@ -60,7 +60,7 @@ surfaces at tax time or at an account freeze.
 
 ## Step 4 — Log
 
-☐ `Changelog.md` entry with the gateway chosen, **the fee schedule as quoted on that date**, and the
+☐ `05-Changelog.md` entry with the gateway chosen, **the fee schedule as quoted on that date**, and the
 alternatives rejected.
 
 ---

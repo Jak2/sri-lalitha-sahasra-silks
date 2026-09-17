@@ -8,21 +8,105 @@ relationship that currently drives the sales.
 
 **Status:** Phase 0 in progress. No code written. **Stack not yet chosen** — deliberately.
 
+> ⚠️ **Budget revised to near-zero on 2026-09-15, which changed the sequence: build the website
+> second, not first.** The two highest-severity problems — business money in a personal account, and
+> no invoice trail — are fixable this week with free tools and no website.
+> **→ [01-START-HERE.md](01-START-HERE.md)** is the checklist. Everything below describes the site you
+> build once order volume justifies it.
+
 ---
 
 ## Documents
 
+> **📍 Not sure what to open? → [00-READ-THIS-FIRST.md](00-READ-THIS-FIRST.md).** One screen, with a
+> reading order for the owner and a separate one for an agent picking the project up.
+> **Root files are numbered in reading order.**
+
 | Document | Answers |
 |---|---|
-| [PRD.md](PRD.md) | What the system must do, and why. Stack-agnostic. The source of truth. |
-| [implementations.md](implementations.md) | How to build it. Three paths, their trade-offs, and the decision gate. |
-| [Changelog.md](Changelog.md) | Every decision, dated, with what was rejected and what would reverse it. |
+| **[00-READ-THIS-FIRST.md](00-READ-THIS-FIRST.md)** | **Which file to open, in what order.** |
+| **[01-START-HERE.md](01-START-HERE.md)** | **The working checklist.** What to do this week, on ₹0, in order. Start here. |
+| **[02-COSTS-AND-TRADEOFFS.md](02-COSTS-AND-TRADEOFFS.md)** | **One ledger.** What ₹0 sacrifices, what it does not, and what every skipped thing costs to buy back. |
+| [03-PRD.md](03-PRD.md) | What the system must do, and why. Stack-agnostic. The source of truth. |
+| [04-implementations.md](04-implementations.md) | How to build it. Three paths, their trade-offs, and the decision gate. |
+| [05-Changelog.md](05-Changelog.md) | Every decision, dated, with what was rejected and what would reverse it. |
 | [phase0/](phase0/) | The business prerequisites. 18 artefacts, currently being filled. |
 | [Phase 0 plan](../../docs/superpowers/plans/2026-09-11-saree-site-phase0.md) | The 14-task execution plan across three parallel tracks. |
-| [website_builder.md](website_builder.md) | The operating persona this project is built under. |
+| [06-website_builder.md](06-website_builder.md) | The operating persona this project is built under. |
 
 **Rule:** where this README and the PRD disagree, the PRD wins. Where a decision is changed in
 conversation, it is appended to the Changelog the same day or it does not count as decided.
+
+---
+
+## The recommendation, in plain words
+
+There are **two separate recommendations** here, and confusing them is what makes this project sound
+complicated. They are not the same decision and they are not made at the same time.
+
+### 1. Do not build the website yet
+
+Over the next six weeks instead: engage a CA, settle GST, open a business current account, set up
+**Zoho Books Free** for real invoices, and open a **Razorpay account** so buyers get a payment link
+instead of your personal PhonePe. Keep selling through WhatsApp exactly as you do today.
+
+**Cost: roughly ₹10,000–35,000, almost all of it the CA.**
+
+**Why.** The website was never the urgent part. Of the five problems below, the two most dangerous do
+not need a website at all:
+
+| Problem | Needs a website? |
+|---|---|
+| Business money in a personal account | **No** — needs a current account and a payment link |
+| No invoices, no order record | **No** — needs Zoho Books Free |
+| Every order costs ~20 minutes of your time | **Yes** |
+| Nobody new can find you | **Yes** |
+| A unique saree could sell twice | Partly |
+
+Business payments landing in a personal savings account is the thing that can freeze your money or
+create a tax problem. It is fixable in six weeks for the price of a CA. **Building a website first
+would mean spending weeks solving problem #3 while problem #1 keeps running.**
+
+Fix the dangerous things now, cheaply. Build the website when it pays for itself.
+
+### 2. When you do build, use Shopify
+
+Not WooCommerce. Not Odoo. Not writing it yourself in Next.js.
+
+Shopify costs ₹1,499/month plus 2% of each order. **The alternatives cost less money and more of
+you.** WooCommerce makes you the sysadmin — updates, backups, security, and the call when checkout
+breaks during Diwali, 4–8 hours a month forever. Writing it yourself is 10–14 weeks before the first
+sale, then that same burden plus everything you built by hand.
+
+**And you are the only person who could fix any of it.** If you are travelling, ill, or busy, the
+business stops. Shopify's outage is Shopify's problem; your server's outage is yours.
+
+> **You are not paying Shopify for features. You are paying them to not be on call.**
+
+### Why this is still a guess
+
+**Shopify does not cost ₹1,499/month. It costs ₹1,499 plus 2% of everything you sell** — and that
+depends entirely on how much you sell, which is not yet known.
+
+| Your monthly sales | Shopify costs per year | Verdict |
+|---|---|---|
+| ₹1,00,000 | ~₹42,000 | Clearly worth it for 7–12 hours a month back |
+| ₹10,00,000 | ~₹2,58,000 | Paying a developer starts making sense |
+
+Those are very different answers. So "use Shopify" actually means *"Shopify, assuming you sell
+somewhere between ₹1–4 lakh a month"* — **a range that was assumed, not measured.**
+
+→ [02-COSTS-AND-TRADEOFFS.md](02-COSTS-AND-TRADEOFFS.md) has the full ledger.
+
+### What would change each recommendation
+
+| Recommendation | Changes if |
+|---|---|
+| Don't build yet | You are already doing **50+ orders/month** — then manual handling is costing real money and the site becomes urgent |
+| Use Shopify | Sales exceed **~₹8 lakh/month** → the 2% starts hurting; look at self-hosting |
+| | **Someone else technical** can help maintain it → self-hosting gets less risky |
+| | You have or want a **physical shop** → Odoo, because one system covers shop and website |
+| | **Learning to build it is genuinely the goal** → then build it in Next.js, properly. That is a legitimate aim, just a different project from "sell sarees this quarter" |
 
 ---
 
@@ -269,6 +353,8 @@ multi-language · international shipping and multi-currency.
 |---|---|---|
 | **A** | Shopify Basic + custom theme | **Recommended, not decided** |
 | **C** | Next.js storefront + self-hosted Medusa (Postgres, Redis, VPS) | Correct second choice |
+| **D** | Zoho Commerce + Zoho Books | Contender — GST-native, no platform %, **but no mobile admin app** |
+| **E** | Odoo (Website + eCommerce + Accounting) | Contender — GST-native, no platform %, heavy; **best if a physical shop or POS shares the system** |
 | **B** | Fully custom Next.js + Supabase + Razorpay | Not recommended for this business |
 
 **Why it is still open:** Phase 0 is stack-independent and is the true critical path — CA → GST
@@ -276,12 +362,20 @@ position → current account → gateway KYC is 2–6 weeks of waiting on third 
 before that completes, so the decision has exactly that long to sit open, and no longer.
 
 **Decision gate:** closes when the business current account opens (Phase 0 Task 5). Inputs and the
-decision rule are in [phase0/banking.md](phase0/banking.md) Step 6 and implementations.md §7.
+decision rule are in [phase0/banking.md](phase0/banking.md) Step 6 and 04-implementations.md §7.
 
 **The number that decides it:** Shopify Payments does not operate in India, so a third-party gateway
-is mandatory **and Shopify charges its own per-order fee on top of the gateway's fee.** That stacked
-percentage against projected GMV is the Path A vs. Path C decision. Read both figures from each
-provider's own current pricing page on the day of the decision — not from these documents.
+is mandatory **and Shopify charges its own per-order fee on top of the gateway's fee.**
+
+Researched 2026-09-15: **Basic 2.0%, Grow 1.0%, Advanced 0.6%.** Basic→Grow crossover at ~₹4.1 lakh
+monthly GMV. The fee scales — ₹2,000/mo at ₹1L GMV, ₹7,200 at ₹3.6L, ₹20,000 at ₹10L. **Cheap
+insurance now, expensive later**, which is why the Phase 4 migration trigger should be a GMV number
+decided in advance rather than a feeling. Re-read Shopify's own page on the day of the decision.
+
+**The number still missing is yours:** real monthly GMV from the last 3 months of WhatsApp sales.
+Every cost figure in [phase0/stack-research.md](phase0/stack-research.md) is modelled on an assumed
+₹3,000 average order value. Until the real number exists, the whole comparison is arithmetic on a
+guess.
 
 **Why the catalog work is safe either way:** `phase0/catalog/catalog.csv` has a frozen 21-column
 contract and imports into all three paths. That is the whole reason the decision can be deferred.

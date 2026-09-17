@@ -58,5 +58,5 @@ IGST. Getting it wrong is a correction exercise across every past order.
 
 ## Log
 
-**Verify (Step 4):** a `Changelog.md` entry exists for the engagement. Not yet written — pending
+**Verify (Step 4):** a `05-Changelog.md` entry exists for the engagement. Not yet written — pending
 Step 3.

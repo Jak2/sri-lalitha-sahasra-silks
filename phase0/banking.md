@@ -55,7 +55,7 @@ See [operator.md](operator.md). Required as a decision-gate input, not an aftert
 
 **Stop here. Do not proceed past this step without choosing a path.**
 
-Re-read [implementations.md](../implementations.md) §7. Gather the §7.2 inputs — in particular:
+Re-read [04-implementations.md](../04-implementations.md) §7. Gather the §7.2 inputs — in particular:
 
 | Input | Value | Read from | Date read |
 |-------|-------|-----------|-----------|
@@ -72,7 +72,7 @@ levies its own per-order fee **on top of** the gateway's fee. That stacked fee a
 is the decisive Path A vs. Path C number. Read both figures on the day of the decision — not from
 this document, not from the PRD, not from an AI.
 
-Then apply the decision rule in implementations.md §7.3.
+Then apply the decision rule in 04-implementations.md §7.3.
 
-**Verify:** a `Changelog.md` entry records the chosen path, the actual fee numbers that drove it,
+**Verify:** a `05-Changelog.md` entry records the chosen path, the actual fee numbers that drove it,
 what was rejected and why, and — required — **what would reverse the decision**.

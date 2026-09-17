@@ -39,7 +39,7 @@ Choose one, explicitly, and log it:
   `draft`
 
 Say it explicitly rather than launching without drape shots and wondering later why the conversion
-rate is poor. **Recorded in `Changelog.md`:** ☐
+rate is poor. **Recorded in `05-Changelog.md`:** ☐
 
 ---
 

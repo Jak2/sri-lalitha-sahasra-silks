@@ -53,5 +53,5 @@ of the current account.
 it.**
 
 **If registration is NOT required:** record that conclusion and its reasoning above, mark Task 4
-skipped with today's date, and add a `Changelog.md` note that this must be re-checked when turnover
+skipped with today's date, and add a `05-Changelog.md` note that this must be re-checked when turnover
 approaches the threshold the CA named.

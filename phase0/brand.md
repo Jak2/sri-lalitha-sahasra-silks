@@ -56,7 +56,7 @@ Claim them even if unused at launch. They cost nothing and are unrecoverable onc
 | YouTube (optional) | `<<FILL>>` | ☐ |
 
 Instagram matters most — it is the Phase 2 channel, and per the WhatsApp/Instagram decision in
-`Changelog.md` it is a traffic layer feeding this site, not a substitute for it.
+`05-Changelog.md` it is a traffic layer feeding this site, not a substitute for it.
 
 ## Step 4 — Visual identity
 
@@ -87,5 +87,5 @@ three surfaces is most of what "a brand" means at this size, and it costs nothin
 
 ## Step 5 — Log
 
-**Verify:** `Changelog.md` entry with the name, the domain, the registrar, and the renewal date.
+**Verify:** `05-Changelog.md` entry with the name, the domain, the registrar, and the renewal date.
 Not yet written.

@@ -39,5 +39,5 @@ site carries the brand.
 
 ## Step 4 — Log
 
-**Verify:** `Changelog.md` entry exists with the alternative rejected and the annual cost stated.
+**Verify:** `05-Changelog.md` entry exists with the alternative rejected and the annual cost stated.
 Not yet written.

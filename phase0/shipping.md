@@ -102,4 +102,4 @@ link, and the real transit time in one go — before a paying customer does it f
 
 ### Step 5 — Log
 
-☐ `Changelog.md` entry.
+☐ `05-Changelog.md` entry.
